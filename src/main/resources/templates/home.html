@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Home Page</title>
+</head>
+<body>
+<div th:insert="navbar.html"></div>
+<h1>This is home page.</h1>
+
+<table class="table table-striped">
+<tr>
+<td>Id</td>
+    <td>Username</td>
+    <td>Password</td>
+</tr>
+
+    <tr th:each="u:${uList}">
+        <td th:text="${u.getId()}"></td>
+        <td th:text="${u.getUsername()}"></td>
+        <td th:text="${u.getPassword()}"></td>
+    </tr>
+
+</table>
+
+</body>
+</html>
