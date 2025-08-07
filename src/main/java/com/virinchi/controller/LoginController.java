@@ -36,6 +36,7 @@ String hashPassword =DigestUtils.md5Hex(password.getBytes());
 boolean result=	uRepo.existsByUsernameAndPassword(username, hashPassword);
 if(result==true)
 {
+	m.addAttribute("uList", uRepo.findAll());
 		return "home";
 }
 else

@@ -7,5 +7,9 @@
 <body>
 <div th:insert="navbar.html"></div>
 <h1>This is gallery page.</h1>
+<form method="post" action="gallery" enctype="multipart/form-data">
+<input type="file" name="image"><br><br>
+<input type="submit" value="UPLOAD TO THE DATABASE">
+</form>
 </body>
 </html>
