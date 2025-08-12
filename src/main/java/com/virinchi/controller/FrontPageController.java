@@ -2,6 +2,7 @@ package com.virinchi.controller;
 
 import com.virinchi.model.UserClass;
 import com.virinchi.repository.UserRepository;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,11 +37,18 @@ public String nextPage()
 }
 	
 	@GetMapping("/home")
-	public String homePage(Model m)
+	public String homePage(Model m, HttpSession session)
 	{
-		List<UserClass> uList= uRepo.findAll();
-m.addAttribute("uList", uList);
-		return "home";
+		if(session.getAttribute("activeUser") != null){
+			List<UserClass> uList= uRepo.findAll();
+			m.addAttribute("uList", uList);
+			return "home";
+		}
+		else {
+			return "frontPage";
+		}
+
+
 	}
 	
 	

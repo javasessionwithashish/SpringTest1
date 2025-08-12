@@ -2,6 +2,7 @@ package com.virinchi.controller;
 
 import com.virinchi.model.ImageClass;
 import com.virinchi.repository.ImageRepository;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,10 +22,17 @@ public class GalleryController {
     private ImageRepository imageRepo;
 
     @GetMapping("/gallery")
-    public String gallery(Model m) {
+    public String gallery(Model m, HttpSession session) {
+if(session.getAttribute("activeUser") != null) {
 
 m.addAttribute("imageList",imageRepo.findAll());
+
         return "gallery";
+}
+else {
+    return "frontPage";
+}
+
     }
 
 
