@@ -18,9 +18,16 @@ public class UserClass {
 	private int id; //primary key, auto_increment
 	private String username;
 	private String password;
-	
-	
-	
+	private String email;
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public int getId() {
 		return id;
 	}
