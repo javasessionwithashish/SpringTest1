@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Employee</title>
+</head>
+<body>
+<div th:insert="navbar.html"></div>
+<h1>Add Employee Details</h1><br>
+<form method="post" action="addEmp">
+Employee Name: <input type="text" name="empName"><br><br>
+    Employee Address: <input type="text" name="empAddress"><br><br>
+    Employee Phone: <input type="text" name="empPhone1" placeholder="Phone1"> <input type="text" name="empPhone2" placeholder="Phone2"><br><br>
+    Employee Department: <input type="text" name="empDept1" placeholder="Dept1"> <input type="text" name="empDept2" placeholder="Dept2"><br><br>
+<input type="submit" value="Click here to Add Employee">
+
+</form>
+</body>
+</html>
