@@ -12,6 +12,7 @@ public class Address {
 private int id;
 private String state;
 
+
     public int getId() {
         return id;
     }
