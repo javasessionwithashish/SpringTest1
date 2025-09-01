@@ -27,9 +27,11 @@ private EmployeeRepo employeeRepo;
 
         Phone p1= new Phone();
         p1.setNumber(empPhone1);
+p1.setEmployee(emp);
 
         Phone p2= new Phone();
         p2.setNumber(empPhone2);
+p2.setEmployee(emp);
 
         emp.setPhoneList(Arrays.asList(p1,p2));
 
