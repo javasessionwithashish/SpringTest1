@@ -15,5 +15,29 @@ Employee Name: <input type="text" name="empName"><br><br>
 <input type="submit" value="Click here to Add Employee">
 
 </form>
+<hr>
+<h2>Employee Details:</h2><br>
+<table class="table table-striped">
+    <tr>
+        <td>Employee Id</td>
+        <td>Employee Name</td>
+        <td>Employee Address</td>
+        <td>Employee Phone1</td>
+        <td>Employee Phone2</td>
+        <td>Employee Department1</td>
+        <td>Employee Department2</td>
+    </tr>
+    <tr th:each="e:${empList}">
+    <td th:text="${e.getId()}"></td>
+        <td th:text="${e.getName()}"></td>
+        <td th:text="${e.getAddress().getState()}"></td>
+        <td th:text="${e.getPhoneList().get(0).getNumber()}"></td>
+        <td th:text="${e.getPhoneList().get(1).getNumber()}"></td>
+        <td th:text="${e.getDeptList().get(0).getDeptName()}"></td>
+        <td th:text="${e.getDeptList().get(1).getDeptName()}"></td>
+    </tr>
+
+
+</table>
 </body>
 </html>

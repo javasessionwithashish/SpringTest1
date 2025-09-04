@@ -1,28 +1,38 @@
 package com.virinchi.controller;
 
+import com.virinchi.model.Employee;
+import com.virinchi.repository.EmployeeRepo;
 import com.virinchi.service.EmployeeService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 @Controller
 public class EmployeeController {
 
     @Autowired
+private EmployeeRepo employeeRepo;
+
+    @Autowired
     private EmployeeService employeeService;
 
     @GetMapping("/addEmp")
-    public String addEmp() {
+    public String addEmp(Model m) {
+        List<Employee> empList= employeeRepo.findAll();
 
+m.addAttribute("empList", empList);
         return "emp";
     }
 
 
     @PostMapping("/addEmp")
-    public String postAdd(HttpServletRequest request)
+    public String postAdd(HttpServletRequest request, Model m )
     {
         String empName = request.getParameter("empName");
         String empAddress= request.getParameter("empAddress");
@@ -35,6 +45,9 @@ public class EmployeeController {
 
        employeeService.empAdd(empName,empAddress,empPhone1,empPhone2,empDept1,empDept2);
 
+        List<Employee> empList= employeeRepo.findAll();
+
+        m.addAttribute("empList", empList);
 
         return "emp";
     }
